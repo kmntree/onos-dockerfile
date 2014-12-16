@@ -31,7 +31,7 @@ Dockerfile for ONOS - a new carrier-grade SDN network operating system
 * [Docker容器部署ONOS控制器教程](http://www.sdnlab.com/4963)
 
 
-### If you are need to use proxy in your environment
+### If you need to use proxy in your environment
 
 * [Configuring a proxy in Maven](http://maven.apache.org/guides/mini/guide-proxies.html)
 
