@@ -6,8 +6,8 @@ MAINTAINER kmntree <kmntree@gmail.com>
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Init ONOS document
-sed -i "/^featuresRepositories=/ s/\$/,mvn:org.onosproject\/onos-features\/1.0.0\/xml\/features/" /home/onos/Applications/apache-karaf-3.0.2/etc/org.apache.karaf.features.cfg
-sed -i "/^featuresBoot=/ s/\$/,onos-api,onos-core-trivial,onos-cli,onos-openflow,onos-app-fwd,onos-app-mobility,onos-gui/" /home/onos/Applications/apache-karaf-3.0.2/etc/org.apache.karaf.features.cfg
+RUN sed -i "/^featuresRepositories=/ s/\$/,mvn:org.onosproject\/onos-features\/1.0.0\/xml\/features/" /home/onos/Applications/apache-karaf-3.0.2/etc/org.apache.karaf.features.cfg
+RUN sed -i "/^featuresBoot=/ s/\$/,onos-api,onos-core-trivial,onos-cli,onos-openflow,onos-app-fwd,onos-app-mobility,onos-gui/" /home/onos/Applications/apache-karaf-3.0.2/etc/org.apache.karaf.features.cfg
 
 # Set environment
 RUN echo "export ONOS_ROOT=/home/onos/onos" >> /etc/profile && \
