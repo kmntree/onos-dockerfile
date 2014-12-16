@@ -24,6 +24,12 @@ Dockerfile for [ONOS - a new carrier-grade SDN network operating system](http://
 
     docker run -d -p 6633:6633 -p 8181:8181 --name onos kmntree/onos
 
+
+#### WebUI URL of ONOS
+
+    http://<ip-address>:8181/onos/ui/index.html
+
+
 ### Reference
 
 * [ONOS from Scratch](https://wiki.onosproject.org/display/ONOS/ONOS+from+Scratch)
