@@ -9,6 +9,11 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN sed -i "/^featuresRepositories=/ s/\$/,mvn:org.onosproject\/onos-features\/1.0.0\/xml\/features/" /home/onos/Applications/apache-karaf-3.0.2/etc/org.apache.karaf.features.cfg
 RUN sed -i "/^featuresBoot=/ s/\$/,onos-api,onos-core-trivial,onos-cli,onos-openflow,onos-app-fwd,onos-app-mobility,onos-gui/" /home/onos/Applications/apache-karaf-3.0.2/etc/org.apache.karaf.features.cfg
 
+RUN mkdir /root/.m2
+RUN echo "<settings></settings>" > /root/.m2/settings.xml
+
+RUN sed -i "s/#org.ops4j.pax.url.mvn.settings=/org.ops4j.pax.url.mvn.settings=\/root\/.m2\/settings.xml/g" /home/onos/Applications/apache-karaf-3.0.2/etc/org.ops4j.pax.url.mvn.cfg
+
 # Set environment
 RUN echo "export ONOS_ROOT=/home/onos/onos" >> /etc/profile && \
 echo "export KARAF_ROOT=/home/onos/Applications/apache-karaf-3.0.2" >> /etc/profile && \
