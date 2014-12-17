@@ -5,6 +5,9 @@ MAINTAINER kmntree <kmntree@gmail.com>
 # Change dash to bash in ubuntu to solve "source: command not found"
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
+# Install tools
+RUN apt-get update && apt-get install -y vim
+
 # Init ONOS document
 RUN sed -i "/^featuresRepositories=/ s/\$/,mvn:org.onosproject\/onos-features\/1.0.0\/xml\/features/" /home/onos/Applications/apache-karaf-3.0.2/etc/org.apache.karaf.features.cfg
 RUN sed -i "/^featuresBoot=/ s/\$/,onos-api,onos-core-trivial,onos-cli,onos-openflow,onos-app-fwd,onos-app-mobility,onos-gui/" /home/onos/Applications/apache-karaf-3.0.2/etc/org.apache.karaf.features.cfg
