@@ -5,6 +5,9 @@ MAINTAINER kmntree <kmntree@gmail.com>
 # Change dash to bash in ubuntu to solve "source: command not found"
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
+# Pull latest onos code
+RUN cd /home/onos/onos && git pull
+
 # Install tools
 RUN apt-get update && apt-get install -y vim
 
